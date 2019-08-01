@@ -2,6 +2,12 @@
 
 # windwos 10 init steps
 
+__todo__
+
+__<https://zhuanlan.zhihu.com/p/66231005>__
+
+
+
 ## softwares
 
 - ssr
@@ -26,6 +32,30 @@
 
 
 ## commands
+
+```bash
+#复制文件内容到win剪贴板
+cat foo.txt | clip.exe
+```
+
+
+
+```bash
+git config --global user.email "b19g3r@gmail.com"
+git config --global user.name "b19g3r"
+```
+
+- proxy
+
+```bash
+# ~/.bashrc 或 ~/zshrc
+export http_proxy="http://127.0.0.1:1080"
+export https_proxy="http://127.0.0.1:1080"
+
+
+alias proxy="export ALL_PROXY=socks5://127.0.0.1:1080"
+alias unproxy="unset ALL_PROXY"
+```
 
 - git proxy
 
@@ -233,5 +263,9 @@ DROP USER account;
 alias curl='curl --socks5 127.0.0.1:1080'
 alias db='sudo service mysql restart'
 #alias end
+```
+
+```bash
+ln -s /mnt/d/ d
 ```
 

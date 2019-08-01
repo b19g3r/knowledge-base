@@ -58,9 +58,16 @@ ssh-keygen -t rsa -C "youremail@example.com"
 ### `wsl`
 
 - [ ] ubuntu on the windows store
+
 - [ ] update the `/etc/apt/sources.list` and update
+
+  `sudo cp sources.list /etc/apt/sources.list`
+
 - [ ] config vim
-- [ ] install zsh and oh-my-zsh
+
+- [ ] install zsh and oh-my-zsh or fish and oh-my-fish
+
+  `sudo apt install fish`
 
 
 
@@ -187,5 +194,44 @@ git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh
 # 编辑 .zshrc, add plugin
  plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
 
+```
+
+```bash
+sudo passwd
+sudo cp sources.list /etc/apt/sources.list
+sudo apt install fish
+which fish
+chsh -s /usr/bin/fish
+curl --socks5 127.0.0.1:1080 -L https://get.oh-my.fish | fish
+omf install robbyrussell
+```
+
+```bash
+sudo apt-get install mariadb-server
+sudo service mysql restart
+su -
+# 输入密码
+mysql
+# 创建一个名为：admin  密码为：admin  的用户。
+insert into mysql.user(Host,User,Password) values("localhost","admin",password("admin"));
+# 刷新权限
+flush privileges;
+# 赋予admin用户所有权限
+GRANT ALL ON *.* TO 'admin'@'localhost';
+#local login
+mysql –uadmin –padmin
+#remote login
+mysql -uadmin -h127.0.0.1 -padmin
+# 删除用户及所有权限
+DROP USER account;
+```
+
+
+
+```bash
+#alias begin
+alias curl='curl --socks5 127.0.0.1:1080'
+alias db='sudo service mysql restart'
+#alias end
 ```
 

@@ -34,6 +34,12 @@ __<https://zhuanlan.zhihu.com/p/66231005>__
 ## commands
 
 ```bash
+:1,$ s/archive.ubuntu.com/mirrors.aliyun.com/g
+#将str1替换为str2
+:1,$ s/str1/str2/g
+```
+
+```bash
 #复制文件内容到win剪贴板
 cat foo.txt | clip.exe
 ```

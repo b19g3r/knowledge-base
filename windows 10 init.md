@@ -33,6 +33,10 @@ __<https://zhuanlan.zhihu.com/p/66231005>__
 
 ## commands
 
+
+
+
+
 ```bash
 :1,$ s/archive.ubuntu.com/mirrors.aliyun.com/g
 #将str1替换为str2
@@ -179,8 +183,7 @@ chsh -s /bin/zsh
 
   
 
-
-## fish
+## Shell
 
 ### fish shell
 
@@ -209,7 +212,7 @@ curl --socks5 127.0.0.1:1080 -L github.com/oh-my-fish/oh-my-fish/raw/master/bin/
 
   - 
 
-## [zsh](<https://blog.jae.sh/article/zqle60.html>)
+### [zsh](<https://blog.jae.sh/article/zqle60.html>)
 
 ```bash
 #  安装zsh
@@ -275,3 +278,49 @@ alias db='sudo service mysql restart'
 ln -s /mnt/d/ d
 ```
 
+
+
+
+
+
+
+
+
+
+
+## auto mount
+
+>不过每次使用时都要重新挂载未免也太烦，我们可以通过另一个新特性 [Automatically Configuring WSL](https://blogs.msdn.microsoft.com/commandline/2018/02/07/automatically-configuring-wsl/) 实现自动挂载。在 WSL 中创建 `/etc/wsl.conf`，在其中填写如下内容：
+>
+>```bash
+>[automount]
+>enabled = true
+>root = /mnt/
+>options = "metadata,umask=22,fmask=111"
+>mountFsTab = true
+># 这个文件里还可以添加其他配置项，有兴趣的可以看看上面的链接
+>```
+>
+>重启终端，所有的盘符就会使用上面的配置自动挂载啦（可以使用 `mount -l` 查看）。
+>
+>另外，如果你想要给不同的盘符设定不同的挂载参数（上面的方法对所有盘符都有效，如果你想在 WSL 中运行 Windows 下的应用程序，就得每次都 `chmod +x` 一下，所以我一般都会把 `C:` 排除掉），就需要手动修改 `/etc/fstab`。首先确保 `wsl.conf` 中的 `mountFsTab` 为 `true`，然后编辑 `/etc/fstab`，添加如下内容：
+>
+>```
+># 不在此列表中的盘符会使用 wsl.conf 中的参数挂载
+># 格式可以自己去查 fstab 的帮助文档
+>E: /mnt/e drvfs rw,relatime,uid=1000,gid=1000,metadata,umask=22,fmask=111 0 0
+>```
+>
+
+## dircolors
+
+> see `https://awesomeopensource.com/project/trapd00r/LS_COLORS#fish-shell`
+
+```bash
+#bash or zsh
+eval $(dircolors -b $HOME/.config/dircolors/.dircolors.wsl)
+
+#fish
+#Place it in ~/.config/fish/config.fish or any *.fish* file inside ~/.config/fish/conf.d/ to be loaded.
+eval (dircolors --c-shell $HOME/.dircolors) 
+```

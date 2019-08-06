@@ -275,18 +275,9 @@ alias db='sudo service mysql restart'
 ```
 
 ```bash
+#创建软连接
 ln -s /mnt/d/ d
 ```
-
-
-
-
-
-
-
-
-
-
 
 ## auto mount
 
@@ -324,3 +315,51 @@ eval $(dircolors -b $HOME/.config/dircolors/.dircolors.wsl)
 #Place it in ~/.config/fish/config.fish or any *.fish* file inside ~/.config/fish/conf.d/ to be loaded.
 eval (dircolors --c-shell $HOME/.dircolors) 
 ```
+
+
+
+
+
+## Windows
+
+### 环境变量
+
+#### java
+
+```
+变量名：JAVA_HOME
+变量值：电脑上JDK安装的绝对路径
+```
+
+![img](windows 10 init_pics/1534411114-3840-3932295-73be617cffdac223.png)
+
+
+
+```
+变量名：CLASSPATH
+变量值：.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;
+```
+
+![img](windows 10 init_pics/1534411198-2259-3932295-afe57d1caf93277c.png)
+
+```
+# Path 新增
+%JAVA_HOME%\bin
+%JAVA_HOME%\jre\bin
+```
+
+![img](windows 10 init_pics/1534411281-6565-3932295-08d84d125c71d0a8.png)
+
+```bat
+#验证
+java -version
+javac -version
+```
+
+#### maven
+
+```
+ MAVEN_HOME=maven source folder
+ Path=Path + "%MAVEN_HOME%\bin"
+```
+

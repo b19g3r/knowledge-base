@@ -133,7 +133,7 @@ docker exec -it container_name||container_id sh -c "shell commads"
 docker run --name mysql-test1 -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql:tag
 docker run -it --network some-network --rm mysql mysql -hsome-mysql -uexample-user -p
 
-docker run -p 3306:3306 --name mymysql -v $PWD/logs:/logs -v $PWD/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=123456 -d mysql:5.6
+docker run -p 3306:3306 --name mysqlc -v $PWD/logs:/logs -v $PWD/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=123456 -d mysql
 ```
 
 
@@ -145,4 +145,49 @@ docker run --name redis-test-01 -p 6379:6379 -v $PWD/data:/data  -d redis redis-
 
  docker exec -it redis-test-01 redis-cli
 ```
+
+
+
+## mysql
+
+- install
+
+  ```bash
+  sudo apt-get install mysql-server-5.7
+  
+  sudo apt install mariadb-server
+  ```
+
+- init
+
+  ```bash
+  # 重启数据库，以创建sock文件
+  sudo service mysql restart
+  切换到root用户，进入数据库
+  su -
+  # 输入密码
+  mysql
+  在mysql> 提示符下创建用户
+  # 创建一个名为：admin  密码为：admin  的用户。
+  insert into mysql.user(Host,User,authentication_string) values("localhost","admin",password("admin"));
+  
+  CREATE USER "admin"@"%" IDENTIFIED BY "admin";
+  
+  # 刷新权限
+  flush privileges;
+  
+  
+  # 赋予admin用户所有权限
+  GRANT ALL ON *.* TO 'admin'@'%';
+  
+  
+  # 删除用户及所有权限
+  DROP USER account;
+  在~/.zshrc中设置alias
+  alias db='sudo service mysql start'
+  注意： mariaDB需要手动创建数据库
+  Ubuntu上mariaDB的默认字符集为utf8mb4，兼容utf-8，不需要进行更改。Centos需要设置charset。
+  ```
+
+  
 

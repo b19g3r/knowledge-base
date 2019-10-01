@@ -42,3 +42,11 @@
 
 
 
+- docker 显示容器 ip
+
+  ``` bash
+  docker inspect --format='{{.Name}} - {{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $(docker ps -aq)
+  ```
+
+  
+

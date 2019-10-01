@@ -1,7 +1,5 @@
 # windwos 10 init steps
 
-
-
 ## softwares
 
 - ssr
@@ -14,9 +12,6 @@
 - wsl-terminal
 - mactype
 - scoop
-
-
-
 
 
 ## commands
@@ -52,17 +47,15 @@ alias unproxy="unset ALL_PROXY"
 
 ```bash
 git config --global http.proxy http://127.0.0.1:1080
-
 git config --global https.proxy https://127.0.0.1:1080
 
 git config --global --unset http.proxy
-
 git config --global --unset https.proxy
 ```
 
 - curl proxy
 
-```
+```bash
 curl --socks5 127.0.0.1:1080 https://www.cyberciti.biz/
 ```
 
@@ -81,9 +74,6 @@ apt-cache madison docker-ce
 sudo apt-get -y install docker-ce=[VERSION]
 ```
 
-
-
-
 ### `wsl`
 
 - [ ] ubuntu on the windows store
@@ -97,8 +87,6 @@ sudo apt-get -y install docker-ce=[VERSION]
 - [ ] install zsh and oh-my-zsh or fish and oh-my-fish
 
   `sudo apt install fish`
-
-
 
 ### scoop
 
@@ -147,17 +135,15 @@ Installed apps:
   wget 1.20.3
 ```
 
-
-
 ## config
 
 ### terminal and cmd
 
 - color
-    - solorized dark
+  - solorized dark
 - software
-    - scoop
-    - wsl
+  - scoop
+  - wsl
 
 ### environment
 
@@ -179,8 +165,6 @@ chsh -s $(which fish)
   cd fonts
   ./install.sh
   ```
-
-  
 
 ## Shell
 
@@ -209,8 +193,6 @@ curl --socks5 127.0.0.1:1080 -L github.com/oh-my-fish/oh-my-fish/raw/master/bin/
 
     `omf theme xxx`
 
-  - 
-
 ### [zsh](<https://blog.jae.sh/article/zqle60.html>)
 
 ```bash
@@ -230,7 +212,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 
 git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
 # 编辑 .zshrc, add plugin
- plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
 
 ```
 
@@ -264,8 +246,6 @@ mysql -uadmin -h127.0.0.1 -padmin
 DROP USER account;
 ```
 
-
-
 ```bash
 #alias begin
 alias curl='curl --socks5 127.0.0.1:1080'
@@ -295,7 +275,7 @@ ln -s /mnt/d/ d
 >
 >另外，如果你想要给不同的盘符设定不同的挂载参数（上面的方法对所有盘符都有效，如果你想在 WSL 中运行 Windows 下的应用程序，就得每次都 `chmod +x` 一下，所以我一般都会把 `C:` 排除掉），就需要手动修改 `/etc/fstab`。首先确保 `wsl.conf` 中的 `mountFsTab` 为 `true`，然后编辑 `/etc/fstab`，添加如下内容：
 >
->```
+>```bat
 ># 不在此列表中的盘符会使用 wsl.conf 中的参数挂载
 ># 格式可以自己去查 fstab 的帮助文档
 >E: /mnt/e drvfs rw,relatime,uid=1000,gid=1000,metadata,umask=22,fmask=111 0 0
@@ -315,33 +295,27 @@ eval $(dircolors -b $HOME/.config/dircolors/.dircolors.wsl)
 eval (dircolors --c-shell $HOME/.dircolors) 
 ```
 
-
-
-
-
 ## Windows
 
 ### 环境变量
 
 #### java
 
-```
+```bat
 变量名：JAVA_HOME
 变量值：电脑上JDK安装的绝对路径
 ```
 
 ![img](windows_10_init_pics/1534411114-3840-3932295-73be617cffdac223.png)
 
-
-
-```
+```bat
 变量名：CLASSPATH
 变量值：.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;
 ```
 
 ![img](windows_10_init_pics/1534411198-2259-3932295-afe57d1caf93277c.png)
 
-```
+```bat
 # Path 新增
 %JAVA_HOME%\bin
 %JAVA_HOME%\jre\bin
@@ -357,7 +331,7 @@ javac -version
 
 #### maven
 
-```
- MAVEN_HOME=maven source folder
- Path=Path + "%MAVEN_HOME%\bin"
+```bat
+MAVEN_HOME=maven source folder
+Path=Path + "%MAVEN_HOME%\bin"
 ```

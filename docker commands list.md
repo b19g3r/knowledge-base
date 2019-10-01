@@ -1,23 +1,23 @@
+# docker commands
+
 ```bash
 docker images == docker image ls
 docker rmi images-name:tag
 
 docker search image-name
 docker pull image-name:tag
-docker 
+docker
 ```
 
-### 基本启用
+## 基本使用
 
 - 启动 docker `service docker start`
 - 重启 `service docker restart`
 - 关闭 `service docker stop`
 
-# 常用命令
+## 常用命令
 
 - 学会常用 help 命令或查看 [官方文档说明](https://docs.docker.com/reference/)
-
-
 
 ```bash
 $ docker --help
@@ -97,9 +97,9 @@ Commands:
 Run 'docker COMMAND --help' for more information on a command.
 ```
 
-### 基本命令
+## 基本命令
 
-#### 仓库相关操作
+### 仓库相关操作
 
 ```bash
 docker pull     #从远程仓库拉取镜像到本地
@@ -109,7 +109,7 @@ docker login    #登录到官方仓库Docker Hub
 docker logout   #退出登录
 ```
 
-#### 镜像相关操作
+### 镜像相关操作
 
 ```bash
 docker build    #从Dockerfile构建镜像
@@ -127,7 +127,7 @@ docker import   #从归档文件中创建镜像
 docker save     #将镜像保存到压缩文件
 ```
 
-#### 容器相关操作
+### 容器相关操作
 
 ```bash
 docker attach   #依附到一个正在运行的容器中
@@ -155,7 +155,7 @@ docker create   #同上
 docker commit   #同上
 ```
 
-#### 其他基本命令
+### 其他基本命令
 
 ```bash
 docker events   #从服务端获取实时的事件
@@ -164,7 +164,7 @@ docker inspect  #显示Docker对象的具体配置信息，包括容器，镜像
 docker version  #输出Docker的版本信息
 ```
 
-#### 管理命令
+### 管理命令
 
 ```bash
 docker container    #容器管理
@@ -180,9 +180,8 @@ docker system       #管理系统信息
 docker volume       #卷管理
 ```
 
-### 一些命令图帮助大家记忆理解
+## 一些命令图
 
 ![59618-20170519215116432-38667527.png](media/5b92a3c78c0a5.png)
 
 ![20170627101219148.png](media/5b92a3c802bb4.png)
-

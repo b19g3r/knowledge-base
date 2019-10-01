@@ -1,7 +1,5 @@
 [TOC]
 
-
-
 ## init
 
 ```bash
@@ -31,7 +29,7 @@ java -version
 javac -version
 ```
 
->###### 使用 apt-get 命令安装 java
+>### 使用 apt-get 命令安装 java
 >
 >```bash
 >#添加 ppa
@@ -44,8 +42,6 @@ javac -version
 >- 安装器会提示你同意 oracle 的服务条款，选择 ok,然后选择 yes 即可
 >
 >- 也可以中断操作,然后下载好相应 jdk 的 tar.gz 包，放在 `/var/cache/oracle-jdk8-installer` 下面，然后安装一次 installer，installer 则会默认使用你下载的 tar.gz 包。
-
-
 
 ## settings
 
@@ -64,15 +60,11 @@ javac -version
    gedit admin:///etc/sysctl.conf
    ```
 
-   
-
 ## middle ware
 
+### docker
 
-
-## docker
-
-### install
+#### install
 
 >```bash
 ># step 1: 安装必要的一些系统工具
@@ -94,7 +86,7 @@ javac -version
 ># sudo apt-get -y install docker-ce=[VERSION]
 >```
 
-### 加速器
+#### 加速器
 
 >```bash
 >sudo mkdir -p /etc/docker
@@ -107,11 +99,9 @@ javac -version
 >sudo systemctl restart docker
 >```
 
-
-
 - 使用
 
-```
+```bash
 docker search image_name
 docker image_name:tag
 docker images
@@ -125,9 +115,7 @@ docker exec -it container_name|container_id redis-cli|bash|
 docker exec -it container_name||container_id sh -c "shell commads"
 ```
 
-
-
-- mysql
+#### docker-mysql
 
 ```bash
 docker run --name mysql-test1 -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql:tag
@@ -136,9 +124,7 @@ docker run -it --network some-network --rm mysql mysql -hsome-mysql -uexample-us
 docker run -p 3306:3306 --name mysqlc -v $PWD/logs:/logs -v $PWD/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=123456 -d mysql
 ```
 
-
-
-- redis
+#### redis
 
 ```bash
 docker run --name redis-test-01 -p 6379:6379 -v $PWD/data:/data  -d redis redis-server --appendonly yes
@@ -146,9 +132,7 @@ docker run --name redis-test-01 -p 6379:6379 -v $PWD/data:/data  -d redis redis-
  docker exec -it redis-test-01 redis-cli
 ```
 
-
-
-## mysql
+### mysql
 
 - install
 
@@ -188,6 +172,3 @@ docker run --name redis-test-01 -p 6379:6379 -v $PWD/data:/data  -d redis redis-
   注意： mariaDB需要手动创建数据库
   Ubuntu上mariaDB的默认字符集为utf8mb4，兼容utf-8，不需要进行更改。Centos需要设置charset。
   ```
-
-  
-

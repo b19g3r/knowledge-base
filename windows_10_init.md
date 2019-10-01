@@ -1,10 +1,4 @@
-[TOC]
-
 # windwos 10 init steps
-
-__todo__
-
-__<https://zhuanlan.zhihu.com/p/66231005>__
 
 
 
@@ -13,29 +7,19 @@ __<https://zhuanlan.zhihu.com/p/66231005>__
 - ssr
 - chrome
 - vs code
-    - system install
-    - add path
-    - not add right menu
 - IDM
 - bandzip
-- musictools
 - Tecent DeskGo
 - `wsl`
-    - add to right menu 
 - wsl-terminal
-    - add to right menu 
 - mactype
-    - 注册表加载
+- scoop
 
 
 
 
 
 ## commands
-
-
-
-
 
 ```bash
 :1,$ s/archive.ubuntu.com/mirrors.aliyun.com/g
@@ -47,8 +31,6 @@ __<https://zhuanlan.zhihu.com/p/66231005>__
 #复制文件内容到win剪贴板
 cat foo.txt | clip.exe
 ```
-
-
 
 ```bash
 git config --global user.email "b19g3r@gmail.com"
@@ -62,7 +44,6 @@ git config --global user.name "b19g3r"
 export http_proxy="http://127.0.0.1:1080"
 export https_proxy="http://127.0.0.1:1080"
 
-
 alias proxy="export ALL_PROXY=socks5://127.0.0.1:1080"
 alias unproxy="unset ALL_PROXY"
 ```
@@ -70,7 +51,7 @@ alias unproxy="unset ALL_PROXY"
 - git proxy
 
 ```bash
-git config --global https.proxy http://127.0.0.1:1080
+git config --global http.proxy http://127.0.0.1:1080
 
 git config --global https.proxy https://127.0.0.1:1080
 
@@ -80,7 +61,6 @@ git config --global --unset https.proxy
 ```
 
 - curl proxy
-  - [see](https://linux.cn/article-9223-1.html)
 
 ```
 curl --socks5 127.0.0.1:1080 https://www.cyberciti.biz/
@@ -90,6 +70,15 @@ curl --socks5 127.0.0.1:1080 https://www.cyberciti.biz/
 
 ``` bash
 ssh-keygen -t rsa -C "youremail@example.com"
+```
+
+- apt-get
+
+```bash
+#查找指定版本的软件包
+apt-cache madison docker-ce
+#安装指定版本的软件包
+sudo apt-get -y install docker-ce=[VERSION]
 ```
 
 
@@ -141,12 +130,21 @@ ssh-keygen -t rsa -C "youremail@example.com"
 Installed apps:
 
   7zip 19.00
+  aria2 1.34.0-1
   bat 0.11.0
+  cacert 2019-05-15
+  ccat 1.1.0
   curl 7.65.3
+  dark 3.11.1
   git 2.22.0.windows.1
-  less 551
+  lessmsi 1.6.91
+  nodejs10 10.16.2 [versions]
+  notepadplusplus 7.7.1 [extras]
+  python 3.7.4
   sudo 0.2018.07.25
-  vim 8.1.1773
+  vim 8.1.1830
+  vscode 1.37.0 [extras]
+  wget 1.20.3
 ```
 
 
@@ -165,10 +163,11 @@ Installed apps:
 
 ```bash
 # 修改shell为zsh
-chsh -s /bin/zsh
+chsh -s $(which fish)
 ```
 
 ## fonts
+
 - Monaco
 
 - powerline fonts
@@ -331,7 +330,7 @@ eval (dircolors --c-shell $HOME/.dircolors)
 变量值：电脑上JDK安装的绝对路径
 ```
 
-![img](windows 10 init_pics/1534411114-3840-3932295-73be617cffdac223.png)
+![img](windows_10_init_pics/1534411114-3840-3932295-73be617cffdac223.png)
 
 
 
@@ -340,7 +339,7 @@ eval (dircolors --c-shell $HOME/.dircolors)
 变量值：.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;
 ```
 
-![img](windows 10 init_pics/1534411198-2259-3932295-afe57d1caf93277c.png)
+![img](windows_10_init_pics/1534411198-2259-3932295-afe57d1caf93277c.png)
 
 ```
 # Path 新增
@@ -348,7 +347,7 @@ eval (dircolors --c-shell $HOME/.dircolors)
 %JAVA_HOME%\jre\bin
 ```
 
-![img](windows 10 init_pics/1534411281-6565-3932295-08d84d125c71d0a8.png)
+![img](windows_10_init_pics/1534411281-6565-3932295-08d84d125c71d0a8.png)
 
 ```bat
 #验证
@@ -362,4 +361,3 @@ javac -version
  MAVEN_HOME=maven source folder
  Path=Path + "%MAVEN_HOME%\bin"
 ```
-

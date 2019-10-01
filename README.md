@@ -1,3 +1,13 @@
-# windows10 init steps
+# some commands
 
-记录一下 win10 的初始化配置过程
+
+
+
+
+- [docker 相关设置](./docker.md)
+  - [docker-mysql](docker-mysql.md)
+  - [docker-rabbitmq](./docker-rabbitmq.md)
+- [windwos 10 init](./windows_10_init.md)
+
+
+
